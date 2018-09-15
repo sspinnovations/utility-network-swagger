@@ -1,0 +1,798 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Open API Specification (OAS/Swagger) \n* **trace**, **updateIsConnected** from the [ArcGIS Utility Network]( https://developers.arcgis.com/rest/services-reference/utility-network-service.htm)\n* **generateToken** from the [ArcGIS REST API](https://developers.arcgis.com/rest/)\n\nTested on ArcGIS  Enterprise 10.6.1 using [NSwagStudio](https://github.com/RSuter/NSwag/wiki/NSwagStudio) C# code gen .\n",
+    "version" : "0.13",
+    "title" : "Swagger for Utility Network",
+    "contact" : {
+      "name" : "",
+      "url" : "",
+      "email" : ""
+    }
+  },
+  "host" : "t4e7j4g.restletmocks.net",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/{ServerWebAdaptor}/rest/services/{UtilityNetworkName}/UtilityNetworkServer/updateIsConnected" : {
+      "post" : {
+        "summary" : "updateIsConnected",
+        "description" : "UtilityNetworkService",
+        "parameters" : [ {
+          "name" : "f",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "default" : "json",
+          "x-example" : "f=json"
+        }, {
+          "name" : "token",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/updateIsConnectedResponse"
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "ServerWebAdaptor",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      }, {
+        "name" : "UtilityNetworkName",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/{ServerWebAdaptor}/rest/services/{UtilityNetworkName}/UtilityNetworkServer/trace" : {
+      "post" : {
+        "tags" : [ "UtilityNetworkService" ],
+        "summary" : "trace",
+        "description" : "Trace",
+        "operationId" : "trace",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "Zo7BVjivecOe2IFj58REGkUcvD9RK1k1Qu8YOpRu_mkMtFA2vPSUiWk_aksOO1-WF_hxNaOOfAMWz00PvyLrgF10ghdv23tW9cr0VUBFjNrw8RnclzKuc5W2sXnu5ilS790spTGYGky4z19dCRcg-pA2oDQMndQ_IkCTE-fOsibd1kdoiK6deU8mZo14Z4A8DmRhI1vneraDt8m7HHbnwY2sfFs_p_DHOl7j521x3BjxTH303O-syc2aF1jm9aPXYtoLY3A5eTz1wVFQcGRMacLkPvHoRcfQLjq6FpRfAumIKVPumQJF_VLoKCAXvjzVbwpvGQADejej96vAmfanUQ.."
+        }, {
+          "name" : "f",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string",
+          "description" : "Optional parameter representing the output format of the response (default is JSON).",
+          "default" : "json",
+          "x-example" : "json"
+        }, {
+          "name" : "gdbVersion",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string",
+          "description" : "The name of the geodatabase version.",
+          "default" : "sde.DEFAULT",
+          "x-example" : "sde.DEFAULT"
+        }, {
+          "name" : "sessionId",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string",
+          "description" : "Optional parameter representing the token (guid) used to lock the version. If the calling client has previously started a service session (editing) and holds an exclusive lock on the specified version, the request will fail if the sessionId is not provided. If the specified version is currently locked by any other session, the request will fail if the sessionId is not provided or does not match the sessionId which holds the exclusive lock.",
+          "default" : "\"\"",
+          "x-example" : "{F7C7C69D-5AE0-47ED-814B-13E1FEF03F17}"
+        }, {
+          "name" : "moment",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string",
+          "description" : "Optional parameter representing the session moment (the default is the version current moment). This should only be specified by the client when they do not want to use the current moment.",
+          "x-example" : "\"1511904463011\""
+        }, {
+          "name" : "traceType",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string",
+          "description" : "The trace type.",
+          "enum" : [ "upstream", "downstream", "connected", "subnetwork", "unknown", "loops", "shortestpath", "subnetworkcontroller" ],
+          "x-example" : "upstream"
+        }, {
+          "name" : "traceLocations",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string",
+          "description" : "***Curently a workaround until figure out how to gen**The locations for starting and stopping points, as well as barriers. Optional parameter for subnetwork trace type, required parameter for all other trace types.",
+          "x-example" : "\"[{\\\"traceLocationType\\\":\\\"startingPoint\\\",\\\"globalId\\\":\\\"{7C47EFCE-4794-4589-9951-F2DEAD1E8176}\\\",\\\"percentAlong\\\":0.67932399720238645}]\""
+        }, {
+          "name" : "traceConfiguration",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string",
+          "description" : "The locations for starting and stopping points, as well as barriers. Optional parameter for subnetwork trace type, required parameter for all other trace types.",
+          "x-example" : "{\n   \"includeContainers\":true,\n   \"includeContent\":false,\n   \"includeStructures\":true,\n   \"includeBarriers\":true,\n   \"validateConsistency\":true,\n   \"domainNetworkName\":\"ElectricDistribution\",\n   \"tierName\":\"Medium Voltage Radial\",\n   \"targetTierName\":\"Medium Voltage Radial\",\n   \"subnetworkName\":\"\",\n   \"diagramTemplateName\":\"\",\n   \"shortestPathNetworkAttributeName\":\"\",\n   \"filterBitsetNetworkAttributeName\":\"\",\n   \"traversabilityScope\":\"junctionsAndEdges\",\n   \"conditionBarriers\":[\n      {\n         \"name\":\"Operational Device Status\",\n         \"type\":\"networkAttribute\",\n         \"operator\":\"equal\",\n         \"value\":1,\n         \"combineUsingOr\":false,\n         \"isSpecificValue\":true\n      }\n   ],\n   \"functionBarriers\":[\n\n   ],\n   \"arcadeExpressionBarrier\":\"\",\n   \"filterBarriers\":[\n\n   ],\n   \"filterFunctionBarriers\":[\n\n   ],\n   \"filterScope\":\"junctionsAndEdges\",\n   \"functions\":[\n\n   ],\n   \"nearestNeighbor\":{\n      \"count\":-1,\n      \"costNetworkAttributeName\":\"\",\n      \"nearestCategories\":[\n\n      ],\n      \"nearestAssets\":[\n\n      ]\n   },\n   \"outputFilters\":[\n\n   ],\n   \"outputConditions\":[\n\n   ],\n   \"propagators\":[\n\n   ]\n}"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/traceResultsSet"
+            },
+            "examples" : {
+              "application/json" : "{\n  \"traceResults\": {\n    \"features\": [\n      {\n        \"networkSourceId\": 9,\n        \"globalId\": \"{C3D30825-900C-4F1F-9458-BB3483E8B6B5}\",\n        \"objectId\": 2853,\n        \"terminalId\": 1,\n        \"assetGroupCode\": 1\n      },\n      {\n        \"networkSourceId\": 9,\n        \"globalId\": \"{138E5504-F84A-4A33-898F-849C4536F386}\",\n        \"objectId\": 2852,\n        \"terminalId\": 1,\n        \"assetGroupCode\": 1\n      },\n      {\n        \"networkSourceId\": 7,\n\n    ],\n    \"diagramName\": \"<placeholder>\"\n  },\n  \"globalFunctionResults\": [],\n  \"isConsistent\": false,\n  \"kFeaturesForKNNFound\": false,\n  \"startingPointsIgnored\": false,\n  \"warnings\": [],\n  \"success\": true,\n   \"error\":\n    {\n      \"code\":500,\n      \"message\":\"Error in handling operation trace\",\n      \"details\":[]}\n  },\n}"
+            }
+          },
+          "404" : {
+            "description" : "Tracing endpoint not found {base}/UtilityNetworkServer/trace"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "ServerWebAdaptor",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      }, {
+        "name" : "UtilityNetworkName",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/{PortalWebAdaptor}/sharing/rest/generateToken" : {
+      "post" : {
+        "tags" : [ "UtilityNetworkService" ],
+        "summary" : "generateToken",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "ip",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "referer",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "expiration",
+          "in" : "formData",
+          "required" : true,
+          "type" : "number"
+        }, {
+          "name" : "f",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string",
+          "default" : "json",
+          "x-example" : "json"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/tokenResponse"
+            },
+            "examples" : {
+              "application/json" : "{\"token\":\"zKIKn-gJ1T3Ho447TeYUfK6-XL4PWMDy-FEyy6QlHF2btB52kto9so81b5LUDNvD5dolh0jHF7HwyKliYFOtlyihM6u0JNqPCXcF6GeC60YnL_s0QukXMnK2OmXRWzBRQssbZnz4HiNIvOLeu9Ol5WpLCDPWKx7OGqsAw3cyjH812cNJd3TGzbaDmD_bamCQbAFsj1S5TDrvz7f8MrMDXFobw0MrcFhemzf_bhsFr3dT9kjnXszOv8lS0hX4WwXkDLr7dtmtM98ff66IWAQSgBvnnNr0mJKl26CYVOYVPkkO9qygOav8-PpY6By7i7_p-XXyWfDoUuLEpRcFu5PwZw..\",\"expires\":1530556578459,\"ssl\":false}"
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "PortalWebAdaptor",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    }
+  },
+  "definitions" : {
+    "conditionBarrier" : {
+      "type" : "object",
+      "required" : [ "combineUsingOr", "isTypeSpecificValue", "networkAttributeName", "operator", "value" ],
+      "properties" : {
+        "networkAttributeName" : {
+          "type" : "string",
+          "example" : "Operational Device Status"
+        },
+        "operator" : {
+          "type" : "string",
+          "example" : "equal"
+        },
+        "value" : {
+          "type" : "number",
+          "description" : "0 = unknown, 1 = open, 2 = closed",
+          "enum" : [ 0.0, 1.0, 2.0 ]
+        },
+        "combineUsingOr" : {
+          "type" : "boolean"
+        },
+        "isTypeSpecificValue" : {
+          "type" : "boolean"
+        }
+      },
+      "example" : "\n      {\n         \"networkAttributeName\":\"Device Status\",\n         \"operator\":\"equal\",\n         \"value\":1,\n         \"combineUsingOr\":false,\n         \"isTypeSpecificValue\":true\n      }\n  "
+    },
+    "tokenResponse" : {
+      "type" : "object",
+      "properties" : {
+        "token" : {
+          "type" : "string",
+          "description" : "The generated token."
+        },
+        "expires" : {
+          "type" : "number",
+          "description" : "The expiration time of the token in milliseconds since Jan. 1, 1970 (UTC)."
+        },
+        "ssl" : {
+          "type" : "boolean",
+          "description" : "True if the token must always pass over ssl."
+        },
+        "error" : {
+          "type" : "object",
+          "properties" : {
+            "code" : {
+              "type" : "number"
+            },
+            "message" : {
+              "type" : "string"
+            },
+            "details" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      },
+      "description" : "Token reesponse from Portal",
+      "example" : "{\"token\":\"zKIKn-gJ1T3Ho447TeYUfK6-XL4PWMDy-FEyy6QlHF2btB52kto9so81b5LUDNvD5dolh0jHF7HwyKliYFOtlyihM6u0JNqPCXcF6GeC60YnL_s0QukXMnK2OmXRWzBRQssbZnz4HiNIvOLeu9Ol5WpLCDPWKx7OGqsAw3cyjH812cNJd3TGzbaDmD_bamCQbAFsj1S5TDrvz7f8MrMDXFobw0MrcFhemzf_bhsFr3dT9kjnXszOv8lS0hX4WwXkDLr7dtmtM98ff66IWAQSgBvnnNr0mJKl26CYVOYVPkkO9qygOav8-PpY6By7i7_p-XXyWfDoUuLEpRcFu5PwZw..\",\"expires\":1530556578459,\"ssl\":false}"
+    },
+    "functionBarrier" : {
+      "type" : "object",
+      "required" : [ "functionType", "networkAttributeName", "operator", "value" ],
+      "properties" : {
+        "functionType" : {
+          "type" : "string",
+          "description" : "Choose from a number of different calculation functions.",
+          "enum" : [ "add", "subtract", "average", "count", "min", "max" ],
+          "example" : "add"
+        },
+        "networkAttributeName" : {
+          "type" : "string",
+          "description" : "Choose to filter by any network attribute defined in the system.",
+          "example" : "Transformer Load"
+        },
+        "operator" : {
+          "type" : "string",
+          "description" : "Choose from a number of different operators",
+          "enum" : [ "equal", "notEqual", "greaterThan", "lessThan", "lessThanEqual", "includesTheValues", "doesNotIncludeTheValues", "includesAny", "doesNotIncludeAny" ]
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "Specific value of the input attribute type that, if discovered, will cause the termination.(string (numeric)",
+          "example" : "0"
+        },
+        "useLocalValues" : {
+          "type" : "boolean",
+          "description" : "Calculates values in each direction as opposed to an overall global value."
+        }
+      },
+      "description" : "Array of objects; optional parameter."
+    },
+    "feature" : {
+      "type" : "object",
+      "properties" : {
+        "networkSourceId" : {
+          "type" : "string",
+          "description" : "networkSourceId"
+        },
+        "globalId" : {
+          "type" : "string",
+          "description" : "guid"
+        },
+        "objectId" : {
+          "type" : "number",
+          "description" : "objectId"
+        },
+        "terminalId" : {
+          "type" : "number",
+          "description" : "terminalId"
+        },
+        "networkAttributes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "assetGroup" : {
+          "type" : "number",
+          "description" : "assetGroup"
+        },
+        "assetType" : {
+          "type" : "number",
+          "description" : "assetType"
+        }
+      }
+    },
+    "functions" : {
+      "type" : "array",
+      "items" : {
+        "required" : [ "functionType", "networkAttributeName" ],
+        "type" : "object",
+        "properties" : {
+          "functionType" : {
+            "type" : "string",
+            "enum" : [ "add", "subtract", "average", "count", "min", "max" ]
+          },
+          "networkAttributeName" : {
+            "type" : "string"
+          },
+          "networkAttributeConditions" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "networkAttributeName" : {
+                  "type" : "string"
+                },
+                "operator" : {
+                  "type" : "string",
+                  "enum" : [ "equal", "notEqual", "greaterThan", "greaterThanEqual", "lessThan", "lessThanEqual", "includesTheValues", "doesNotIncludeTheValues", "includesAny", "doesNotIncludeAny" ]
+                },
+                "value" : {
+                  "type" : "string"
+                },
+                "combineUsingOr" : {
+                  "type" : "boolean"
+                },
+                "isTypeSpecificValue" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "example" : "[  \n      {  \n         \"functionType\":\"add\",\n         \"networkAttributeName\":\"Service Load\",\n         \"networkAttributeConditions\":[  \n            {  \n               \"networkAttributeName\":\"Service Load\",\n               \"operator\":\"greaterThan\",\n               \"value\":0,\n               \"combineUsingOr\":false,\n               \"isTypeSpecificValue\":true\n            }\n         ],\n      }\n      \n]"
+    },
+    "outputFilter" : {
+      "type" : "object",
+      "required" : [ "assetGroup", "assetType", "sourceId" ],
+      "properties" : {
+        "sourceId" : {
+          "type" : "number",
+          "example" : 8
+        },
+        "assetGroup" : {
+          "type" : "number"
+        },
+        "assetType" : {
+          "type" : "number",
+          "example" : 0
+        }
+      }
+    },
+    "traceLocation" : {
+      "type" : "object",
+      "properties" : {
+        "traceLocationType" : {
+          "type" : "string",
+          "enum" : [ "startingPoint", "stoppingPoint" ]
+        },
+        "globalId" : {
+          "type" : "string"
+        },
+        "percentAlong" : {
+          "type" : "number"
+        }
+      },
+      "example" : "{\r\n    \"traceLocationType\":\"startingPoint\",\r\n    \"globalId\":\"{AFC09CCA-4B14-44A7-BF45-42E120EF97ED}\",\r\n    \"percentAlong\":0.44386166034321217\r\n  }"
+    },
+    "networkAttribute" : {
+      "type" : "object",
+      "properties" : {
+        "networkAttribute" : {
+          "type" : "number"
+        }
+      },
+      "example" : "\"networkAttribute1\":\"1\"\n"
+    },
+    "propagator" : {
+      "type" : "object",
+      "required" : [ "functionType", "networkAttributeName", "operator", "value" ],
+      "properties" : {
+        "networkAttributeName" : {
+          "type" : "string"
+        },
+        "functionType" : {
+          "type" : "string",
+          "enum" : [ "bitwiseAnd", "min", "max" ]
+        },
+        "operator" : {
+          "type" : "string",
+          "enum" : [ "equal", "notEqual", "bitwiseAnd", "greater", "greaterEqual", "less", "lessEqual" ]
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "string (numeric)"
+        }
+      },
+      "example" : " {\n         \"networkAttributeName\":\"NominalVoltage\",\n         \"propagatorFunctionType\":\"min\",\n         \"operator\":\"includesAny\",\n         \"value\":2147483647,\n         \"propagatedAttributeName\":\"\"\n }"
+    },
+    "traceConfiguration" : {
+      "type" : "object",
+      "required" : [ "conditionBarriers", "filterBarriers", "filterFunctionBarriers", "functionBarriers", "functions", "nearestNeighbor", "outputConditions", "outputFilters", "propagators" ],
+      "properties" : {
+        "includeContainers" : {
+          "type" : "boolean",
+          "description" : "Optional parameter representing whether or not to include containers in the trace result (default is false).",
+          "default" : false,
+          "example" : false
+        },
+        "includeContent" : {
+          "type" : "boolean",
+          "description" : "Optional parameter representing whether or not to include content in the trace result (default is false).",
+          "default" : false
+        },
+        "includeStructures" : {
+          "type" : "boolean",
+          "description" : "Optional parameter representing whether or not to include structures in the trace result (default is false).",
+          "default" : false,
+          "example" : false
+        },
+        "includeBarriers" : {
+          "type" : "boolean",
+          "description" : "Optional parameter representing whether or not to include barrier features that stop a trace in the trace result (default is true).",
+          "default" : true,
+          "example" : true
+        },
+        "validateConsistency" : {
+          "type" : "boolean",
+          "description" : "Optional parameter representing whether or not to validate the consistency of the trace results (default is false).",
+          "default" : false,
+          "example" : false
+        },
+        "domainNetworkName" : {
+          "type" : "string",
+          "description" : "Optional parameter that specifies the name of the domain network where the trace is starting.",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "tierName" : {
+          "type" : "string",
+          "description" : "Optional parameter that specifies the name of the tier where the trace is starting.",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "targetTierName" : {
+          "type" : "string",
+          "description" : "Optional parameter representing the name of the tier where upstream or downstream trace ends.",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "subnetworkName" : {
+          "type" : "string",
+          "description" : "Optional parameter representing the name of the subnetwork that will be traced - the starting points of the trace will be the controllers of this subnetwork .",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "diagramTemplateName" : {
+          "type" : "string",
+          "description" : "Optional parameter representing the name of the diagram template.",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "shortestPathNetworkAttributeName" : {
+          "type" : "string",
+          "description" : "Required parameter for shortest path trace ; optional otherwise. It represents the network attribute name used for determining cost when calulating the shortest path.",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "filterBitsetNetworkAttributeName" : {
+          "type" : "string",
+          "description" : "Optional parameter. Used during loops trace to only return loops with the same bit set all around the loop. Used during upstream/downstream traces to ensure that trace results include any bit that is set in the starting points for the network attribute.",
+          "default" : "REPLACE_WITH_EMPTY_STRING",
+          "example" : "\"\""
+        },
+        "traversabilityScope" : {
+          "type" : "string",
+          "description" : "Optional parameters representing which network element types the condition, category, or function barriers apply to (default is junctionsAndEdges).",
+          "default" : "junctionsAndEdges",
+          "enum" : [ "junctions", "edges", "junctionsAndEdges" ],
+          "example" : "junctionsAndEdges"
+        },
+        "conditionBarriers" : {
+          "type" : "array",
+          "description" : "Optional parameter containing an array of objects (representing network attribute conditions) that serve as barriers - default is null. If isTypeSpecificValue is true, the network attribute is being compared with a specific value ; otherwise the network attribute is being compared with another network attribute.",
+          "items" : {
+            "$ref" : "#/definitions/conditionBarrier"
+          }
+        },
+        "categoryBarriers" : {
+          "type" : "array",
+          "description" : "The categories that serve as barriers (default is none) : optional parameter.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "functionBarriers" : {
+          "type" : "array",
+          "description" : "optional parameter.",
+          "items" : {
+            "$ref" : "#/definitions/functionBarrier"
+          }
+        },
+        "arcadeExpressionBarrier" : {
+          "type" : "string",
+          "default" : "\"\"",
+          "example" : "\"\""
+        },
+        "filterBarriers" : {
+          "type" : "array",
+          "description" : "A second pass is done over the trace results and all results after these categories are encountered are filtered (default is none) : optional parameter.",
+          "items" : {
+            "type" : "string",
+            "example" : "[ \"Protective\", \"Transformer\"]"
+          }
+        },
+        "filterFunctionBarriers" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "filterScope" : {
+          "type" : "string",
+          "default" : "junctionsAndEdges",
+          "example" : "junctionsAndEdges"
+        },
+        "functions" : {
+          "type" : "object",
+          "description" : "Optional parameter ; an array of objects representing functions. Each function may have an optional array of network attribute conditions."
+        },
+        "nearestNeighbor" : {
+          "$ref" : "#/definitions/nearestNeighborParam"
+        },
+        "outputFilters" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/traceOutputCondition"
+          }
+        },
+        "outputConditions" : {
+          "type" : "array",
+          "description" : "The categories associated with the output filter (default is none) ; optional parameter.",
+          "items" : {
+            "$ref" : "#/definitions/outputFilter"
+          }
+        },
+        "propagators" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/propagator"
+          }
+        }
+      },
+      "example" : "{\n   \"includeContainers\":true,\n   \"includeContent\":false,\n   \"includeStructures\":true,\n   \"includeBarriers\":false,\n   \"validateConsistency\":false,\n   \"domainNetworkName\":\"ElectricDistribution\",\n   \"tierName\":\"Medium Voltage Radial\",\n   \"targetTierName\":\"Medium Voltage Radial\",\n   \"subnetworkName\":\"\",\n   \"diagramTemplateName\":\"\",\n   \"shortestPathNetworkAttributeName\":\"\",\n   \"filterBitsetNetworkAttributeName\":\"\",\n   \"traversabilityScope\":\"junctionsAndEdges\",\n   \"conditionBarriers\":[\n      {\n         \"networkAttributeName\":\"Device Status\",\n         \"operator\":\"equal\",\n         \"value\":1,\n         \"combineUsingOr\":false,\n         \"isTypeSpecificValue\":true\n      }\n   ],\n   \"categoryBarriers\":[\n\n   ],\n   \"functionBarriers\":[\n\n   ],\n   \"arcadeExpressionBarrier\":\"\",\n   \"filterCategories\":[\n\n   ],\n   \"functions\":[\n\n   ],\n   \"nearestNeighbor\":{\n      \"count\":-1,\n      \"costNetworkAttributeName\":\"\",\n      \"nearestCategories\":[\n\n      ],\n      \"nearestAssets\":[\n\n      ]\n   },\n   \"outputFilterCategories\":[\n\n   ],\n   \"outputFilters\":[\n\n   ],\n   \"outputNetworkAttributeConditions\":[\n\n   ],\n   \"propagators\":[\n      {\n         \"networkAttributeName\":\"NominalVoltage\",\n         \"propagatorFunctionType\":\"min\",\n         \"operator\":\"includesAny\",\n         \"value\":2147483647,\n         \"propagatedAttributeName\":\"\"\n      }\n   ],\n   \"stoppingCategories\":[\n\n   ]\n}"
+    },
+    "traceOutputCondition" : {
+      "type" : "object",
+      "required" : [ "isSpecificValue", "name", "operator", "type" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "example" : "Phases Current"
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "networkAttribute", "category" ],
+          "example" : "networkAttribute"
+        },
+        "operator" : {
+          "type" : "string",
+          "example" : "equal"
+        },
+        "value" : {
+          "type" : "number",
+          "example" : 4
+        },
+        "combineUsingOr" : {
+          "type" : "boolean",
+          "example" : false
+        },
+        "isSpecificValue" : {
+          "type" : "boolean",
+          "example" : true
+        }
+      }
+    },
+    "traceResultsSet" : {
+      "type" : "object",
+      "properties" : {
+        "traceResults" : {
+          "type" : "object",
+          "properties" : {
+            "elements" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "networkSourceId" : {
+                    "type" : "number"
+                  },
+                  "globalId" : {
+                    "type" : "string"
+                  },
+                  "objectId" : {
+                    "type" : "number"
+                  },
+                  "terminalId" : {
+                    "type" : "number"
+                  },
+                  "assetGroupCode" : {
+                    "type" : "number"
+                  },
+                  "assetTypeCode" : {
+                    "type" : "number"
+                  }
+                }
+              }
+            },
+            "diagramName" : {
+              "type" : "string"
+            },
+            "globalFunctionResults" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "kFeaturesForKNNFound" : {
+              "type" : "boolean"
+            },
+            "startingPointsIgnored" : {
+              "type" : "boolean"
+            },
+            "warnings" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "success" : {
+          "type" : "boolean"
+        },
+        "error" : {
+          "type" : "object",
+          "properties" : {
+            "code" : {
+              "type" : "number"
+            },
+            "message" : {
+              "type" : "string"
+            },
+            "details" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      },
+      "description" : "Model for TraceResults",
+      "example" : "{\"traceResults\":{\"elements\":[{\"networkSourceId\":6,\"globalId\":\"{FB79C6C2-CC3D-40FB-82CA-A7E0C7A1FB40}\",\"objectId\":1122,\"terminalId\":1,\"assetGroupCode\":5,\"assetTypeCode\":172},{\"networkSourceId\":7,\"globalId\":\"{4C67A8EE-EA11-40C3-B3AA-17450E4200BB}\",\"objectId\":3004,\"terminalId\":-1,\"assetGroupCode\":3,\"assetTypeCode\":165},{\"networkSourceId\":7,\"globalId\":\"{12EA87AF-C485-43B2-A932-2A9D860368B8}\",\"objectId\":3396,\"terminalId\":-1,\"assetGroupCode\":3,\"assetTypeCode\":164},{\"networkSourceId\":7,\"globalId\":\"{1F570054-FE52-4225-B01B-10ACD86631FA}\",\"objectId\":3397,\"terminalId\":-1,\"assetGroupCode\":3,\"assetTypeCode\":164},{\"networkSourceId\":7,\"globalId\":\"{7C47EFCE-4794-4589-9951-F2DEAD1E8176}\",\"objectId\":4008,\"terminalId\":-1,\"assetGroupCode\":5,\"assetTypeCode\":165},{\"networkSourceId\":7,\"globalId\":\"{B08E3D30-D1FD-4336-AF6A-DB2ABEE000A1}\",\"objectId\":3219,\"terminalId\":-1,\"assetGroupCode\":3,\"assetTypeCode\":164},{\"networkSourceId\":7,\"globalId\":\"{D3577A92-3816-4440-882C-77A968FED57C}\",\"objectId\":3095,\"terminalId\":-1,\"assetGroupCode\":3,\"assetTypeCode\":164}],\"diagramName\":\"\\u003cplaceholder\\u003e\",\"globalFunctionResults\":[],\"kFeaturesForKNNFound\":false,\"startingPointsIgnored\":false,\"warnings\":[]},\"success\":true, \"error\":{\"code\":400,\"message\":\"Unable to generate token.\",\"details\":[\"Invalid username or password.\"]}\r\n  }"
+    },
+    "tokenRequest" : {
+      "type" : "object",
+      "required" : [ "expiration", "f", "password", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "ip" : {
+          "type" : "string"
+        },
+        "referer" : {
+          "type" : "string"
+        },
+        "expiration" : {
+          "type" : "number"
+        },
+        "f" : {
+          "type" : "string",
+          "default" : "json",
+          "example" : "json"
+        }
+      }
+    },
+    "nearestNeighborParam" : {
+      "type" : "object",
+      "required" : [ "nearestAssets", "nearestCategories" ],
+      "properties" : {
+        "count" : {
+          "type" : "integer",
+          "default" : -1
+        },
+        "costNetworkAttributeName" : {
+          "type" : "string",
+          "default" : "REPLACE_WITH_EMPTY_STRING"
+        },
+        "nearestCategories" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "nearestAssets" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "example" : "{\r\n      \"count\":-1,\r\n      \"costNetworkAttributeName\":\"\",\r\n      \"nearestCategories\":[\r\n\r\n      ],\r\n      \"nearestAssets\":[\r\n\r\n      ]\r\n   }"
+    },
+    "traceLocations" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/traceLocation"
+      }
+    },
+    "updateIsConnectedResponse" : {
+      "type" : "object",
+      "properties" : {
+        "moment" : {
+          "type" : "number"
+        },
+        "success" : {
+          "type" : "string"
+        },
+        "error" : {
+          "type" : "object",
+          "properties" : {
+            "code" : {
+              "type" : "number"
+            },
+            "message" : {
+              "type" : "string"
+            },
+            "details" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
