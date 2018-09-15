@@ -8,7 +8,7 @@ An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification
 
 * Swagger/Open API definition file for trace, updatedIsConnected, getToken. 
 * nSwagStudio generated C# client for trace, updatedIsConnected, getToken
-* swagger-codegen samples of other client generations using 
+* swagger-codegen samples of other generated clients (Python, C++, TypeScript-Angular, TypeScript-Node, Akka-Scala)
 
 ## Prerequisites
 
