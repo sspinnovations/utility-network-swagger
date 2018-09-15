@@ -6,9 +6,13 @@ An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification
 
 ## What's here?
 
-* Swagger definition file for trace, updatedIsConnected, getToken. 
+* Swagger/Open API definition file for trace, updatedIsConnected, getToken. 
 * nSwagStudio generated C# client for trace, updatedIsConnected, getToken
 * swagger-codegen samples of other client generations using 
+
+## Prerequisites
+
+* Visual Studio 2015 or 2017 to compile C# sample
 
 ## Getting Started
 
@@ -16,7 +20,6 @@ An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification
  - Change variables marked as *REQUIRED* in Program.cs
  - Compile, run, have fun
 
-None. 
 
 ## Built With
 
