@@ -1,4 +1,4 @@
-# Swagger for ArcGIS UtilityNetwork web services
+# Swagger for ArcGIS Utility Network web services
 
 An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification) definition for  methods on the [ArcGIS Utility Network REST API](https://developers.arcgis.com/rest/services-reference/utility-network-service.htm)
 
