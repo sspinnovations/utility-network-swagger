@@ -4,7 +4,7 @@ An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification
 
 ![GetRunning](https://github.com/sspinnovations/utility-network-swagger/blob/master/UtilityNetwork_Rest_To_Client.jpg?raw=true)
 
-## What's here?
+## What's Here?
 
 * Swagger/Open API definition file for trace, updatedIsConnected, getToken. 
 * nSwagStudio generated C# client for trace, updatedIsConnected, getToken
