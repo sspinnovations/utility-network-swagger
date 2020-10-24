@@ -16,9 +16,10 @@ An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification
 
 ## Getting Started
 
- - Open .NET solution under code-samples\UtilityNetworkCSharpSample\UNCSharpConsoleSample.sln 
- - Change variables marked as *REQUIRED* in Program.cs
- - Compile, run, have fun
+ - Open .NET solution under code-samples\UtilityNetworkCSharpSample_v2\UNCSharpConsoleSample.sln 
+ - Change variables marked as *REQUIRED* in Program.cs for your Portal web adapter, manager, username, password, and utility network feature layer name.
+ - Compile, run, have fun!!
+ - Fin!
 
 ## Version 2 SDKs Built With
 
