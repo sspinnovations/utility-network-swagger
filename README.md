@@ -12,20 +12,25 @@ An [Open API Specification/Swagger](https://github.com/OAI/OpenAPI-Specification
 
 ## Prerequisites
 
-* Visual Studio 2015 or 2017 to compile C# sample
+* Visual Studio 2015, 2017, or 2019 to compile C# sample (in /utility-network-swagger/code samples/UtilityNetworkCSharpSample_v1 (or _v2))
 
 ## Getting Started
 
- - Open .NET solution under code-samples\UtilityNetworkCSharpSample\UNCSharpConsoleSample.sln 
- - Change variables marked as *REQUIRED* in Program.cs
- - Compile, run, have fun
+ - Open .NET solution under code-samples\UtilityNetworkCSharpSample_v2\UNCSharpConsoleSample.sln 
+ - Change variables marked as *REQUIRED* in Program.cs for your Portal web adapter, manager, username, password, and utility network feature layer name.
+ - Compile, run, have fun!!
+ - Fin!
 
+## Version 2 SDKs Built With
 
-## Built With
+* [Swagger-Editor](https://github.com/swagger-api/swagger-editor) - Local Visual editor for OpenAPI Spec, and Client SDK generator
+* [SwaggerHub ](https://swagger.io/tools/swaggerhub/) - Local Visual editor for OpenAPI Spec, and Client SDK generator
+* [nSwagStudio](https://github.com/RSuter/NSwag/wiki/NSwagStudio) - Used to generate C#, TypeScript clients
+* [Swagger-codegen](https://github.com/swagger-api/swagger-codegen) - Command line client generator for Swagger APIs
+
+## Version 1 SDKs Built With
 
 * [Restlet Studio](https://restlet.com/modules/studio/) - Visual editor for Swagger
-* [nSwagStudio](https://github.com/RSuter/NSwag/wiki/NSwagStudio) - Used to generate C#, TypeScript clients
+* [nSwagStudio](https://github.com/RSuter/NSwag/wiki/NSwagStudio) - Used to generate C# clients
 * [Swagger-codegen](https://github.com/swagger-api/swagger-codegen) - Command line client generator for Swagger
 * [Maven](https://maven.apache.org/) - Dependency Management (used to build swagger-codegen)
-
-
